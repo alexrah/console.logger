@@ -1,0 +1,25 @@
+{
+  "name": "@alexrah/logger",
+  "version": "1.0.0",
+  "description": "console.log wrapper with log level, stack trace and coloured output",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexrah/console.logger.git"
+  },
+  "keywords": [
+    "console.log",
+    "logger",
+    "debug",
+    "logging"
+  ],
+  "author": "Alessandro Stoppato",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexrah/console.logger/issues"
+  },
+  "homepage": "https://github.com/alexrah/console.logger#readme"
+}
