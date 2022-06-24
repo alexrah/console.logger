@@ -1,6 +1,6 @@
 {
   "name": "@alexrah/logger",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "console.log wrapper with log level, stack trace and coloured output",
   "main": "dist/logger.js",
   "types": "dist/logger.d.ts",
