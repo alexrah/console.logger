@@ -2,9 +2,11 @@
   "name": "@alexrah/logger",
   "version": "1.0.0",
   "description": "console.log wrapper with log level, stack trace and coloured output",
-  "main": "index.js",
+  "main": "dist/logger.js",
+  "type":"module",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -21,5 +23,11 @@
   "bugs": {
     "url": "https://github.com/alexrah/console.logger/issues"
   },
-  "homepage": "https://github.com/alexrah/console.logger#readme"
+  "homepage": "https://github.com/alexrah/console.logger#readme",
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  },
+  "files": [
+    "dist"
+  ]
 }
