@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "console.log wrapper with log level, stack trace and coloured output",
   "main": "dist/logger.js",
+  "types": "dist/logger.d.ts",
   "type":"module",
   "scripts": {
     "test": "jest",
@@ -12,6 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/alexrah/console.logger.git"
   },
+  "homepage": "https://github.com/alexrah/console.logger#readme",
   "keywords": [
     "console.log",
     "logger",
