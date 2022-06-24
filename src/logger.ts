@@ -1,4 +1,3 @@
-import constants from './constants';
 /**
  * Simple logger class overriding console.log
  * - it supports a global level to toggle various logging level on/off
@@ -47,8 +46,13 @@ class logger  {
         ]
 
         this.setPrefix(prefix);
-        this.setLevel(constants.logLevel);
 
+        /*TODO: cannot work like this, async setLevel will make setBind() to be called to late */
+        // let constants
+        // import('./constants')
+        //     .then( constants => this.setLevel(constants.logLevel) )
+        //     .catch((e) =>  this.setLevel(6) )
+        this.setLevel(6);
     }
 
     setPrefix(prefix:string){
