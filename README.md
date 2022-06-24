@@ -15,3 +15,4 @@ npm i @alexrah/logger
 #### TODO
 * global setLevel with dotenv
 * now works only with window.console, add support to node console
+* testing: add jest deps and write tests
