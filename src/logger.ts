@@ -79,21 +79,21 @@ class logger  {
     setBind(){
 
         if (this.level >= this.ASSERT) {
-            this.a = console.assert.bind(window.console);
+            this.a = console.assert.bind(console);
         } else {
             this.a = function() {};
         }
-        if (this.level >= this.ERROR) this.e = console.error.bind(window.console,...this.prefix);
+        if (this.level >= this.ERROR) this.e = console.error.bind(console,...this.prefix);
         else this.e = function() {};
-        if (this.level >= this.WARN) this.w = console.warn.bind(window.console,...this.prefix);
+        if (this.level >= this.WARN) this.w = console.warn.bind(console,...this.prefix);
         else this.w = function() {};
-        if (this.level >= this.INFO) this.i = console.info.bind(window.console,...this.prefix);
+        if (this.level >= this.INFO) this.i = console.info.bind(console,...this.prefix);
         else this.i = function() {};
-        if (this.level >= this.DEBUG) this.d = console.debug.bind(window.console,...this.prefix);
+        if (this.level >= this.DEBUG) this.d = console.debug.bind(console,...this.prefix);
         else this.d = function() {};
         if (this.level >= this.VERBOSE) {
-            this.v = console.log.bind(window.console,...this.prefix);
-            this.s = console.log.bind(window.console,...this.prefixStack);
+            this.v = console.log.bind(console,...this.prefix);
+            this.s = console.log.bind(console,...this.prefixStack);
         } else {
             this.v = function() {};
             this.s = function() {};
