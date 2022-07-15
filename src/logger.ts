@@ -3,8 +3,11 @@
  * - it supports a global level to toggle various logging level on/off
  * - it can be initialized with a custom prefix or with an automatic prefix derived from error stack trace
  * - it defines a logger.s() method which is at the same level as console.log but it also renders the full stack trace
- * @version 2.0
+ * @version 2.0.0
 * */
+
+import 'dotenv/config';
+
 class logger  {
 
     ASSERT;
@@ -52,7 +55,9 @@ class logger  {
         // import('./constants')
         //     .then( constants => this.setLevel(constants.logLevel) )
         //     .catch((e) =>  this.setLevel(6) )
-        this.setLevel(6);
+        const initLogLevel = (typeof process.env.LOG_LEVEL !== 'undefined') ? parseInt( (process.env.LOG_LEVEL as string) ) : this.level
+
+        this.setLevel( initLogLevel );
     }
 
     setPrefix(prefix:string){
