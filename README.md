@@ -12,6 +12,20 @@ npm i @alexrah/logger
 * random coloured output
 * stack trace with ``const lg = new logger(); lg.s('traced output'')``
 
+#### Requirements
+* create a .env file in the root directory
+* add constant ``LOG_LEVEL`` with a value between 1 and 6
+
+###### LOG_LEVEL
+```
+ASSERT = 1;
+ERROR = 2;
+WARN = 3;
+INFO = 4;
+DEBUG = 5;
+VERBOSE = 6
+```
+
 #### TODO
 * global setLevel with dotenv
 * now works only with window.console, add support to node console
