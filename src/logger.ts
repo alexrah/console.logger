@@ -3,7 +3,7 @@
  * - it supports a global level to toggle various logging level on/off
  * - it can be initialized with a custom prefix or with an automatic prefix derived from error stack trace
  * - it defines a logger.s() method which is at the same level as console.log but it also renders the full stack trace
- * @version 2.0.0
+ * @version 2.0.1
 * */
 
 import 'dotenv/config';
