@@ -14,17 +14,14 @@ test('working on node environment',()=>{
     //call: 2
     console.log('global',typeof global);
 
-    // console.log('process', process);
-    process.env.LOG_LEVEL = 2
-
     const lg  = new logger('serverSide');
-    // lg.setLevel(2);
 
     //call: 3
     console.log('current logLevel',lg.level);
 
     /**
      * this line won't get called with lg.level = 2
+     * set in .env file
      * */
     lg.v('foo','bar');
 
