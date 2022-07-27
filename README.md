@@ -12,9 +12,13 @@ npm i @alexrah/logger
 * random coloured output
 * stack trace with ``const lg = new logger(); lg.s('traced output'')``
 
-#### Requirements
+#### Requirements NODE environment
 * create a .env file in the root directory
-* add constant ``LOG_LEVEL`` with a value between 1 and 6
+* add constant ``LOG_LEVEL`` with a value between 1 and 6 ``LOG_LEVEL="6"``
+
+#### Requirements BROWSER environment
+* create a global object env ``window.env = {}``
+* add constant ``LOG_LEVEL`` with a value between 1 and 6 ``window.env.LOG_LEVEL = '6';``
 
 ###### LOG_LEVEL
 ```
