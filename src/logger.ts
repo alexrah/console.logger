@@ -3,10 +3,8 @@
  * - it supports a global level to toggle various logging level on/off
  * - it can be initialized with a custom prefix or with an automatic prefix derived from error stack trace
  * - it defines a logger.s() method which is at the same level as console.log but it also renders the full stack trace
- * @version 2.0.1
+ * @version 3.0.0
 * */
-
-import 'dotenv/config';
 
 class logger  {
 
@@ -55,7 +53,28 @@ class logger  {
         // import('./constants')
         //     .then( constants => this.setLevel(constants.logLevel) )
         //     .catch((e) =>  this.setLevel(6) )
-        const initLogLevel = (typeof process.env.LOG_LEVEL !== 'undefined') ? parseInt( (process.env.LOG_LEVEL as string) ) : this.level
+        // const initLogLevel = (typeof process.env.LOG_LEVEL !== 'undefined') ? parseInt( (process.env.LOG_LEVEL as string) ) : this.level
+
+
+        let initLogLevel;
+        const env = (typeof window === 'undefined')?'process':'window';
+
+        switch (env){
+            case 'window':
+                // @ts-ignore
+                initLogLevel = window?.env?.LOG_LEVEL;
+                // console.log('initLogLevel window',initLogLevel);
+                break;
+            case 'process':
+                initLogLevel = process?.env?.LOG_LEVEL;
+                // console.log('initLogLevel process',initLogLevel);
+                break;
+        }
+
+        if(typeof initLogLevel === 'undefined'){
+            initLogLevel = this.level;
+            // console.log('initLogLevel fallback',initLogLevel);
+        }
 
         this.setLevel( initLogLevel );
     }
@@ -76,8 +95,8 @@ class logger  {
 
     }
 
-    setLevel(level:number){
-        this.level = level;
+    setLevel(level:number|string){
+        this.level = (typeof level === 'string')?parseInt(level):level;
         this.setBind();
     }
 
