@@ -3,7 +3,7 @@
  * - it supports a global level to toggle various logging level on/off
  * - it can be initialized with a custom prefix or with an automatic prefix derived from error stack trace
  * - it defines a logger.s() method which is at the same level as console.log but it also renders the full stack trace
- * @version 3.0.0
+ * @version 3.2.0
 * */
 
 class logger  {
@@ -17,12 +17,40 @@ class logger  {
     prefix = [''];
     prefixStack = [''];
     level = 6;
+
+    /**
+     * binds to console.assert()
+     * */
     a(val1:any, val2?:any):void{};
+
+    /**
+     * binds to console.error()
+     * */
     e(val1:any, val2?:any):void{};
+
+    /**
+     * binds to console.warn()
+     * */
     w(val1:any, val2?:any):void{};
+
+    /**
+     * binds to console.info()
+     * */
     i(val1:any, val2?:any):void{};
+
+    /**
+     * binds to console.debug()
+     * */
     d(val1:any, val2?:any):void{};
+
+    /**
+     * binds to console.log()
+    * */
     v(val1:any, val2?:any):void{};
+
+    /**
+     * binds to console.log() + stack trace
+     * */
     s(val1:any, val2?:any):void{};
     chalkColors: string[]
 
