@@ -2,12 +2,18 @@
   "name": "@alexrah/logger",
   "version": "3.2.0",
   "description": "console.log wrapper with log level, stack trace and coloured output",
-  "main": "dist/logger.js",
-  "types": "dist/logger.d.ts",
-  "type": "module",
+  "main": "dist/cjs/logger.js",
+  "module": "dist/mjs/index.js",
+  "types": "dist/mjs/logger.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/mjs/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc --watch",
+    "build": "rm -fr dist/* && tsc -p tsconfig-esm.json && tsc -p tsconfig-cjs.json && bash ./fixup.sh",
+    "watch": "tsc --watch -p tsconfig-esm.json",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch"
   },
   "repository": {
