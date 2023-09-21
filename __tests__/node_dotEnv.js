@@ -2,9 +2,9 @@
  * @jest-environment node
  */
 
-import logger from './../dist/logger'
+import {jest} from '@jest/globals';
+import logger from './../dist/mjs/logger'
 import 'dotenv/config';
-import {jest} from "@jest/globals";
 
 test('working on node environment',()=>{
     const spyConsoleLog = jest.spyOn(console,'log')

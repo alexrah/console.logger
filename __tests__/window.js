@@ -3,7 +3,7 @@
  */
 
 import {jest} from '@jest/globals'
-import logger from './../dist/logger'
+import logger from './../dist/mjs/logger'
 
 test('working on DOM environment',()=>{
 

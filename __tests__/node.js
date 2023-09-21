@@ -2,8 +2,8 @@
  * @jest-environment node
  */
 
-import logger from './../dist/logger'
-import {jest} from "@jest/globals";
+import {jest} from '@jest/globals';
+import logger from './../dist/mjs/logger'
 
 test('working on node environment',()=>{
 
