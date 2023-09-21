@@ -40,5 +40,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "logrocket": "^5.0.1"
+  }
 }
