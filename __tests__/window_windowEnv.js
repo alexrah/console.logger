@@ -27,9 +27,9 @@ test('working on DOM environment',()=>{
      * */
     lg.v('foo','bar');
 
-    expect(console.log).toHaveBeenNthCalledWith(1,'window','object');
-    expect(console.log).toHaveBeenNthCalledWith(2,'global','object');
-    expect(console.log).toHaveBeenNthCalledWith(3,expect.anything(),2);
-    expect(console.log).toHaveBeenCalledTimes(3);
+    expect(spyConsoleLog).toHaveBeenNthCalledWith(1,'window','object');
+    expect(spyConsoleLog).toHaveBeenNthCalledWith(2,'global','object');
+    expect(spyConsoleLog).toHaveBeenNthCalledWith(3,expect.anything(),2);
+    expect(spyConsoleLog).toHaveBeenCalledTimes(3);
 })
 
