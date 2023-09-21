@@ -1,3 +1,10 @@
+import LogRocket from 'logrocket';
+
+export type tEnv = {
+    LOG_LEVEL: number,
+    LOG_ROCKET_ID: string
+}
+
 /**
  * Simple logger class overriding console.log
  * - it supports a global level to toggle various logging level on/off
@@ -5,7 +12,6 @@
  * - it defines a logger.s() method which is at the same level as console.log but it also renders the full stack trace
  * @version 3.2.0
 * */
-
 class logger  {
 
     ASSERT;
@@ -84,17 +90,22 @@ class logger  {
         // const initLogLevel = (typeof process.env.LOG_LEVEL !== 'undefined') ? parseInt( (process.env.LOG_LEVEL as string) ) : this.level
 
 
-        let initLogLevel;
+        let initLogLevel, logRockerAppId;
+
         const env = (typeof window === 'undefined')?'process':'window';
 
         switch (env){
             case 'window':
                 // @ts-ignore
                 initLogLevel = window?.env?.LOG_LEVEL;
+                // @ts-ignore
+                logRockerAppId = window?.env?.LOG_ROCKET_ID;
+
                 // console.log('initLogLevel window',initLogLevel);
                 break;
             case 'process':
                 initLogLevel = process?.env?.LOG_LEVEL;
+                logRockerAppId = process?.env?.LOG_ROCKET_ID;
                 // console.log('initLogLevel process',initLogLevel);
                 break;
         }
@@ -105,6 +116,11 @@ class logger  {
         }
 
         this.setLevel( initLogLevel );
+
+        if(typeof logRockerAppId !== 'undefined'){
+            LogRocket.init(logRockerAppId);
+        }
+
     }
 
     setPrefix(prefix:string){
