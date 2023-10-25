@@ -1,6 +1,6 @@
 {
   "name": "@alexrah/logger",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "description": "console.log wrapper with log level, stack trace and coloured output",
   "main": "dist/cjs/logger.js",
   "module": "dist/mjs/logger.js",

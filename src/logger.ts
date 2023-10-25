@@ -10,7 +10,7 @@ export type tEnv = {
  * - it supports a global level to toggle various logging level on/off
  * - it can be initialized with a custom prefix or with an automatic prefix derived from error stack trace
  * - it defines a logger.s() method which is at the same level as console.log but it also renders the full stack trace
- * @version 3.2.0
+ * @version 5.1.0
 * */
 class logger  {
 
@@ -117,7 +117,7 @@ class logger  {
 
         this.setLevel( initLogLevel );
 
-        if(typeof logRockerAppId !== 'undefined'){
+        if(typeof logRockerAppId !== 'undefined' && logRockerAppId.length > 0){
             LogRocket.init(logRockerAppId);
         }
 
