@@ -1,5 +1,3 @@
-import LogRocket from 'logrocket';
-
 export type tEnv = {
     LOG_LEVEL: number,
     LOG_ROCKET_ID: string
@@ -90,7 +88,7 @@ class logger  {
         // const initLogLevel = (typeof process.env.LOG_LEVEL !== 'undefined') ? parseInt( (process.env.LOG_LEVEL as string) ) : this.level
 
 
-        let initLogLevel, logRockerAppId;
+        let initLogLevel, logRockerAppId: string|undefined;
 
         const env = (typeof window === 'undefined')?'process':'window';
 
@@ -118,7 +116,11 @@ class logger  {
         this.setLevel( initLogLevel );
 
         if(typeof logRockerAppId !== 'undefined' && logRockerAppId.length > 0){
-            LogRocket.init(logRockerAppId);
+
+            import('logrocket').then(( { default: LogRocket} ) => {
+                LogRocket.init( (logRockerAppId as string) );
+            });
+
         }
 
     }
